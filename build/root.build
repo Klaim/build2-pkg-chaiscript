@@ -1,0 +1,6 @@
+
+
+cxx.std = experimental        # C++ standard
+using cxx                     # C++ module
+hxx{*}: extension = hpp       # C++ source file extension
+cxx{*}: extension = cpp       # C++ source file extension
