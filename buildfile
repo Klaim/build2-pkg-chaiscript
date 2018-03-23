@@ -6,12 +6,18 @@ source_dir = $root_dir/src
 staticlibs_dir = $root_dir/static_libs
 headers = {hxx}{$include_dir/**}
 
+
 cc.poptions =+ "-I$include_dir"
 
 liba{chaiscript_stdlib} : {hxx cxx}{$staticlibs_dir/chaiscript_stdlib}
 liba{chaiscript_parser} : {hxx cxx}{$staticlibs_dir/chaiscript_parser}
 
 exe{chai} : cxx{$source_dir/main} chaiscript_stdlib chaiscript_parser
+
+# workaround msvc preprocessor issue: https://lists.build2.org/archives/users/2018-March/000290.html
+if ($cxx.id == 'msvc')
+    obj{*}: cc.reprocess = true
+
 
 #####################################################################################
 # This is extracted from dependencies from build2 repos,
