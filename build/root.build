@@ -1,6 +1,6 @@
 
 
-cxx.std = experimental        # C++ standard
+cxx.std = 17                  # C++ standard
 using cxx                     # C++ module
 hxx{*}: extension = hpp       # C++ source file extension
 cxx{*}: extension = cpp       # C++ source file extension

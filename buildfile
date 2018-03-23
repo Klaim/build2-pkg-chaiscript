@@ -1,5 +1,11 @@
 
 
+#############################
+
+# workaround msvc preprocessor issue: https://lists.build2.org/archives/users/2018-March/000290.html
+if( $cxx.id == 'msvc' )
+    obj{*} : cc.reprocess = true
+
 root_dir = $src_base/chaiscript
 include_dir = $root_dir/include
 source_dir = $root_dir/src
@@ -9,15 +15,10 @@ headers = {hxx}{$include_dir/**}
 
 cc.poptions =+ "-I$include_dir"
 
-liba{chaiscript_stdlib} : {hxx cxx}{$staticlibs_dir/chaiscript_stdlib}
+exe{chai} : cxx{$source_dir/main} liba{chaiscript_stdlib} liba{chaiscript_parser}
+
 liba{chaiscript_parser} : {hxx cxx}{$staticlibs_dir/chaiscript_parser}
-
-exe{chai} : cxx{$source_dir/main} chaiscript_stdlib chaiscript_parser
-
-# workaround msvc preprocessor issue: https://lists.build2.org/archives/users/2018-March/000290.html
-if ($cxx.id == 'msvc')
-    obj{*}: cc.reprocess = true
-
+liba{chaiscript_stdlib} : {hxx cxx}{$staticlibs_dir/chaiscript_stdlib}
 
 #####################################################################################
 # This is extracted from dependencies from build2 repos,
