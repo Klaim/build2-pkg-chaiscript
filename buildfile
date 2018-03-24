@@ -12,10 +12,11 @@ source_dir = $root_dir/src
 staticlibs_dir = $root_dir/static_libs
 headers = {hxx}{$include_dir/**}
 
+./ : exe{chai} liba{chaiscript_parser chaiscript_stdlib}
 
 cc.poptions =+ "-I$include_dir"
 
-exe{chai} : cxx{$source_dir/main} liba{chaiscript_stdlib} liba{chaiscript_parser}
+exe{chai} : cxx{$source_dir/main} liba{chaiscript_parser chaiscript_stdlib}
 
 liba{chaiscript_parser} : {hxx cxx}{$staticlibs_dir/chaiscript_parser}
 liba{chaiscript_stdlib} : {hxx cxx}{$staticlibs_dir/chaiscript_stdlib}
