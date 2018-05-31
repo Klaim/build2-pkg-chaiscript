@@ -1,0 +1,10 @@
+$out_root/
+{
+  include libchaiscript/
+}
+
+export $out_root/libchaiscript/liba{chaiscript_parser}
+export $out_root/libchaiscript/liba{chaiscript_stdlib}
+export $out_root/libchaiscript/exe{chai}
+
+
