@@ -1,5 +1,5 @@
 [submodule "chaiscript"]
-	path = chaiscript
+	path = chaiscript/chaiscript
 	url = https://github.com/Klaim/ChaiScript.git
 	branch = klaim/build2
 

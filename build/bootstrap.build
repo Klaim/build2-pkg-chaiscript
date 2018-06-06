@@ -1,7 +1,8 @@
-
-
 project = chaiscript
+
+using version
 using config
-
-
+using test
+using dist
+using install
 
