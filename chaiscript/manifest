@@ -6,6 +6,6 @@ license: proprietary
 url: http://chaiscript.com
 email: jason@emptycrate.com
 
-depends: * build2 >= 0.7.0-
-depends: * bpkg >= 0.7.0-
+depends: * build2 >= 0.8.0-
+depends: * bpkg >= 0.8.0-
 # depends: C++17
