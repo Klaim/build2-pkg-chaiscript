@@ -3,8 +3,8 @@
 #############################
 
 # workaround msvc preprocessor issue: https://lists.build2.org/archives/users/2018-March/000290.html
-if( $cxx.id == 'msvc' )
-    obj{*} : cc.reprocess = true
+if($cxx.id == 'msvc' && $cxx.version.major == 19 && $cxx.version.minor < 12)
+    ob{*} : cc.reprocess = true
 
 root_dir = $src_base/origin
 include_dir = $root_dir/include
